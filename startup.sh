@@ -1,5 +1,6 @@
 #! /bin/bash
-su - akhong
+export USERNAME="akhong"
+export HOME="/home/akhong"
 
 sudo apt-get update && sudo apt-get install -y \
     build-essential \
@@ -27,7 +28,7 @@ sudo apt-get update && sudo apt-get install -y docker-ce
 # ZSH
 sudo apt-get update && sudo apt-get install -y zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sudo zsh
-sudo chsh -s /usr/bin/zsh
+sudo chsh -s /usr/bin/zsh $USERNAME
 
 # Miniconda
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
@@ -53,6 +54,7 @@ sudo add-apt-repository -y ppa:neovim-ppa/stable \
         && pip install --upgrade neovim jedi google-api-python-client \
         && nvim +PlugInstall +silent +qall \
         && /bin/bash $HOME/dotfiles/tmux/tpm/scripts/install_plugins.sh
+sudo chown -R $USERNAME "$HOME/.local"
 
 # Ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
