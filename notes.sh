@@ -20,13 +20,3 @@ gcloud compute ssh $NAME
 
 # SSH to Cloud Shell
 gcloud alpha cloud-shell ssh
-
-# TODO:
-# - develop startup script 
-# - make sure you can start and stop
-# - test startup script
-# - find out how to scale up the instance
-# - create a new bitcoinmoney project
-
-# - Google storage
-# - Google Kubernetes Engine
